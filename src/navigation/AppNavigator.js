@@ -11,6 +11,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 // import DrawerContent from '../components/DrawerContent';
 // // Screens
 import IntroScreen1 from '../screens/IntroFlow/IntroScreen1';
+import IntroScreen2 from '../screens/IntroFlow/IntroScreen2';
+import IntroScreen3 from '../screens/IntroFlow/IntroScreen3';
 // import Login from '../screens/LoginFlow/Login';
 // import SignUp from '../screens/LoginFlow/SignUp';
 // import ForgotPass from '../screens/LoginFlow/ForgotPass';
@@ -50,17 +52,17 @@ const MainNavigation = (props) => {
                 component={IntroScreen1}
                 options={{ headerShown: false, animationEnabled: false }}
             />
-            {/* <Stack.Screen
-                name="Login"
-                component={Login}
+             <Stack.Screen
+                name="IntroScreen2"
+                component={IntroScreen2}
                 options={{ headerShown: false, animationEnabled: false }}
             />
             <Stack.Screen
-                name="SignUp"
-                component={SignUp}
+                name="IntroScreen3"
+                component={IntroScreen3}
                 options={{ headerShown: false, animationEnabled: false }}
             />
-            <Stack.Screen
+            {/*<Stack.Screen
                 name="ForgotPass"
                 component={ForgotPass}
                 options={{ headerShown: false, animationEnabled: false }}

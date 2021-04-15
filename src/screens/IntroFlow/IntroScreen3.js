@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text,Image, ImageStore,TouchableOpacity } from "react-native";
+import { View, Text,Image, ImageStore,TouchableOpacity,Dimensions } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { connect } from 'react-redux';
 import * as actions from '../../store/action';
@@ -7,7 +7,8 @@ import PageMarker from "../../components/PageMrker";
 import { IMAGES } from "../../defaults/images";
 import { Default } from "../../defaults/Default";
 import CustomButton from "../../components/CustomButton";
-class IntroScreen2 extends React.Component {
+const {width,height}=Dimensions.get('window');
+class IntroScreen1 extends React.Component {
 
    async  componentDidMount(){
 
@@ -24,7 +25,7 @@ class IntroScreen2 extends React.Component {
             >
                  <View
                 style={{
-                    flex: 0.5,
+                    flex: 0.6,
                   
                   
                 }}
@@ -47,7 +48,7 @@ class IntroScreen2 extends React.Component {
                     
                 }}
             >
-               <PageMarker position={1}/>
+               <PageMarker position={3}/>
             </View>
             <View
                 style={{
@@ -57,26 +58,28 @@ class IntroScreen2 extends React.Component {
                     backgroundColor:'white'
                 }}
             >
-               <Image style={{flex:1,resizeMode:'contain'}} source={IMAGES.intro1}/>
+               <Image style={{flex:1,width:width-50,resizeMode:'cover',overflow:'visible',marginBottom:10}} source={IMAGES.intro3_t}/>
+               <Image style={{flex:1,width:width-20,resizeMode:'contain',overflow:'visible',position:'absolute',zIndex:999}} source={IMAGES.intro3_m}/>
+               <Image style={{flex:1,width:width-50,resizeMode:'cover',overflow:'visible',marginTop:10}} source={IMAGES.intro3_b}/>
             </View>
             </View>
             <View
                 style={{
-                    flex: 0.5,
+                    flex: 0.4,
                     alignItems: 'center',
                     
                    
                 }}
             >
 
-                <Text allowFontScaling={false} style={{color:Default.textColor,fontFamily:Default.font_HB,fontSize:24,textAlign:'center',marginHorizontal:25}}>
-                Use DraftFuel to fuel your gaming hobby!
+                <Text allowFontScaling={false} style={{color:Default.textColor,fontFamily:Default.font_HB,fontSize:24,textAlign:'center',marginHorizontal:25,}}>
+                You’re in full control
                 </Text>
                 <Text allowFontScaling={false} style={{color:Default.textColorLGray,fontFamily:Default.font_H,fontSize:18,textAlign:'center',marginHorizontal:25,marginTop:10,lineHeight:25}}>
-                Effortlessly place the “spare change” and/or a fixed percentage of your banking deposits from any connected account directly into your DraftFuel account.
+                Set your DraftFuel account to round up purchases or save a pre-determined percentage of your deposits.
                 </Text>
-            <View style={{height:60,marginTop:10,width:100}}>
-<CustomButton title={'Next'} onPress={()=>{this.props.navigation.navigate('IntroScreen2')}}/>
+            <View style={{height:60,marginTop:10,width:140}}>
+<CustomButton title={'Get Started'}/>
                 </View>
                 <Text allowFontScaling={false} style={{color:Default.textColorLGray,fontFamily:Default.font_H,fontSize:15,textAlign:'center',marginHorizontal:25,marginTop:5,lineHeight:25}}>
                 * The DraftFuel Banking partner full issuer statement
@@ -97,4 +100,4 @@ const mapStateToProps = state => {
     return { State: state.SignIn };
     
 };
-export default connect(mapStateToProps, actions)(IntroScreen2);
+export default connect(mapStateToProps, actions)(IntroScreen1);
