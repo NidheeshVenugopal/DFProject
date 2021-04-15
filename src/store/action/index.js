@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { navigate } from '../../navigations/navigationRef';
 
-
+// console.log('saasa')
 
 export const ClearErrorMsg = () => {
   return dispatch => {
